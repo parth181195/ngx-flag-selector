@@ -17,7 +17,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ngx-flag-selector": [
+        "dist/ngx-flag-selector"
+      ],
+      "ngx-flag-selector/*": [
+        "dist/ngx-flag-selector/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
