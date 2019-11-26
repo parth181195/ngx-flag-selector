@@ -1,0 +1,31 @@
+<div class="abs">
+  <mat-form-field class="country-select" appearance='outline' #select *ngIf='control'>
+    <mat-select [formControl]='control' placeholder="Country">
+      <mat-select-trigger>
+        <div class="flag-warpper" *ngIf="control.touched && control.value">
+          <svg viewBox="0 0 45 48">
+            <use [attr.xlink:href]="'assets/images/flag.defs.svg#'+control.value.code.toLowerCase()"></use>
+          </svg>
+          <div class="country-wrapper">
+            {{control.value.name}}
+          </div>
+        </div>
+      </mat-select-trigger>
+      <mat-option>
+        <ngx-mat-select-search [placeholderLabel]="'Find country...'"
+          [noEntriesFoundLabel]="'no matching country found'" [formControl]="filterCtrl"></ngx-mat-select-search>
+      </mat-option>
+      <mat-option *ngFor="let country of filteredcountryData| async" [value]="country">
+        <div class="flag-warpper">
+          <svg viewBox="0 0 45 48">
+            <use [attr.xlink:href]="'assets/images/flag.defs.svg#'+country.code.toLowerCase()"></use>
+          </svg>
+          <div class="country-wrapper">
+            {{country.name}}
+          </div>
+        </div>
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+</div>

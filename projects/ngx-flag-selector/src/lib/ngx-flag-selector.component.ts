@@ -1,13 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'lib-ngx-flag-selector',
-  template: `
-    <p>
-      ngx-flag-selector works!
-    </p>
-  `,
-  styles: []
+  selector: 'ngx-flag-selector',
+  templateUrl: './ngx-flag-selector.component.html',
+  styleUrls: ['./ngx-flag-selector.component.sass']
 })
 export class NgxFlagSelectorComponent implements OnInit {
 

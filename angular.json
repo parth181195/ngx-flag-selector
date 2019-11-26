@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "flag-selector": {
@@ -28,6 +28,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.sass"
             ],
             "scripts": []
@@ -92,6 +93,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.sass"
             ],
             "scripts": []
@@ -129,6 +131,11 @@
       "root": "projects/ngx-flag-selector",
       "sourceRoot": "projects/ngx-flag-selector/src",
       "prefix": "lib",
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "sass"
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
@@ -163,6 +170,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "flag-selector"
 }

@@ -3,14 +3,25 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CountrySelectComponent } from './components/country-select/country-select.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CountrySelectComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatSelectModule,
+    MatInputModule,
+    NgxMatSelectSearchModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

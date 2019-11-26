@@ -1,1 +1,37 @@
-/* You can add global styles to this file, and also import other style files */
+.country-select
+  .mat-select-arrow-wrapper
+    transform: translate(0, 0) !important
+
+  .mat-form-field-infix
+    border-top-width: 0.25em !important
+
+  .mat-select-trigger
+    height: 1.625em
+    display: flex !important
+    align-items: center
+
+    .mat-select-value
+      max-width: inherit
+      display: flex !important
+
+      .mat-select-placeholder
+        display: flex !important
+
+    .mat-select-arrow-wrapper
+      display: flex !important
+
+    .flag-warpper
+      position: relative
+      height: 30px
+
+      svg
+        position: absolute
+        top: 50% !important
+        transform: translate(0, -50%) !important
+        height: 45px
+        width: 41px
+        left: 0
+
+      .country-wrapper
+        padding-left: 50px
+        padding-top: 7px
