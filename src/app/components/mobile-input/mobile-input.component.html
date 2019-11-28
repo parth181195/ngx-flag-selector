@@ -1,13 +1,13 @@
-<div class="abs">
-  <mat-form-field class="country-select" appearance='outline' #select *ngIf='control'>
-    <mat-select [formControl]='control' placeholder="Country">
+<div class="mobile-input-wrapper">
+  <mat-form-field class="mobile-country-select" appearance='outline' #select *ngIf='dialCodeControl'>
+    <mat-select [formControl]='dialCodeControl' placeholder="Dial Code">
       <mat-select-trigger>
-        <div class="trigger-flag-warpper" *ngIf="control.touched && control.value; else placeholder">
+        <div class="trigger-flag-warpper small" *ngIf="dialCodeControl.touched && dialCodeControl.value;else placeholder">
           <svg viewBox="0 0 45 48">
-            <use [attr.xlink:href]="'assets/images/flag.defs.svg#'+control.value.code.toLowerCase()"></use>
+            <use [attr.xlink:href]="'assets/images/flag.defs.svg#'+dialCodeControl.value.code.toLowerCase()"></use>
           </svg>
           <div class="country-wrapper">
-            {{control.value.name}}
+            <strong> +{{dialCodeControl.value.dialCode}}</strong>
           </div>
         </div>
         <ng-template #placeholder>
@@ -36,6 +36,7 @@
               <use [attr.xlink:href]="'assets/images/flag.defs.svg#'+country.code.toLowerCase()"></use>
             </svg>
             <div class="country-wrapper">
+              <strong>+{{country.dialCode}}</strong>
               {{country.name}}
             </div>
           </div>
@@ -43,5 +44,8 @@
       </ng-container>
     </mat-select>
   </mat-form-field>
+  <mat-form-field value="Sushi" appearance='outline' class="mobile-text-input" #input *ngIf='control'>
 
+    <input matInput placeholder="Mobile no." type='tel' [formControl]='control'>
+  </mat-form-field>
 </div>

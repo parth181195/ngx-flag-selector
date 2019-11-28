@@ -1,33 +1,25 @@
-// tslint:disable: max-line-length
-// tslint:disable: variable-name
-// tslint:disable: no-output-native
-import { FocusMonitor } from '@angular/cdk/a11y';
-import { coerceBooleanProperty } from '@angular/cdk/coercion';
-import { Component, ElementRef, Input, OnDestroy, Optional, Self, OnChanges, SimpleChange, SimpleChanges } from '@angular/core';
-import { FormBuilder, FormGroup, ControlValueAccessor, NgControl, FormControl } from '@angular/forms';
-import { MatFormFieldControl } from '@angular/material/form-field';
+import { Component, OnInit, Input, SimpleChanges, OnDestroy, OnChanges } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { Subject, ReplaySubject } from 'rxjs';
-import { CountryInterface, countryData } from './data';
+import { CountryInterface, countryData } from '../country-select/data';
 import { takeUntil } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-
-
 @Component({
-  selector: 'app-country-select',
-  templateUrl: './country-select.component.html',
-  styleUrls: ['./country-select.component.sass'],
-
+  selector: 'app-mobile-input',
+  templateUrl: './mobile-input.component.html',
+  styleUrls: ['./mobile-input.component.sass']
 })
-
-export class CountrySelectComponent implements OnDestroy, OnChanges {
+export class MobileInputComponent implements OnChanges, OnDestroy {
+  @Input() dialCodeControl: FormControl;
   @Input() control: FormControl;
   title = 'flag-selector';
+  country = 'in';
   filterCtrl = new FormControl('');
+  isLoading = true;
   protected _onDestroy = new Subject<void>();
   countryData: CountryInterface[] = [];
   filteredcountryData: ReplaySubject<CountryInterface[]> = new ReplaySubject<CountryInterface[]>(1);
-  isLoading = true;
 
   constructor(private http: HttpClient) {
     this.filteredcountryData.next(this.countryData.slice());
@@ -59,7 +51,7 @@ export class CountrySelectComponent implements OnDestroy, OnChanges {
     }
     // filter the countryData
     this.filteredcountryData.next(
-      this.countryData.filter(bank => bank.name.toLowerCase().indexOf(search) > -1)
+      this.countryData.filter(country => country.name.toLowerCase().indexOf(search) > -1)
     );
   }
   ngOnDestroy() {
@@ -74,13 +66,12 @@ export class CountrySelectComponent implements OnDestroy, OnChanges {
     }
     ).subscribe(res => {
       console.log(res);
-      // tslint:disable-next-line: no-string-literal
       this.countryData = res['data'];
       this.filteredcountryData.next(this.countryData);
       this.isLoading = false;
     });
   }
 
+
+
 }
-
-

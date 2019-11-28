@@ -1,23 +1,20 @@
 
 export interface CountryInterface {
-  numCode: string;
-  code: string;
-  alpha_3_code: string;
-  name: string;
-  nationality: string;
-  dialCode: string;
-  fileName: string;
+  numCode?: string;
+  code?: string;
+  alpha_3_code?: string;
+  name?: string;
+  nationality?: string;
+  dialCode?: string;
+  fileName?: string;
 }
 
 export const countryData = [
   {
-    numCode: '4',
     code: 'AF',
-    alpha_3_code: 'AFG',
     name: 'Afghanistan',
     nationality: 'Afghan',
     dialCode: '+93',
-    fileName: 'af.svg'
   },
   {
     numCode: '248',

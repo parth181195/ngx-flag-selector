@@ -1,10 +1,41 @@
-.country-select
+.flag-warpper
+  position: relative
+  svg
+    position: absolute
+    top: 0
+    height: 48px
+    width: 45px
+    left: 0
+  .country-wrapper
+    padding-left: 50px
+
+.mobile-input-wrapper
+  display: flex
+  .mobile-country-select
+    .mat-form-field-outline-end
+      border-radius: 0
+  .mobile-text-input
+    .mat-form-field-outline-start
+      border-radius: 0
+  .mat-form-field
+    width: 120px
+.mat-option.loader
+    .mat-option-text
+      display: flex
+      align-items: center
+      .loading-lablel
+        padding-left: 10px
+.country-select,.mobile-country-select,.mobile-text-input
+  &.mobile-text-input
+    width: auto
+    input
+      min-width: 150px
+      height: 27px
   .mat-select-arrow-wrapper
     transform: translate(0, 0) !important
 
   .mat-form-field-infix
-    border-top-width: 0.25em !important
-
+    border-top-width: 0.35em !important
   .mat-select-trigger
     height: 1.625em
     display: flex !important
@@ -20,10 +51,9 @@
     .mat-select-arrow-wrapper
       display: flex !important
 
-    .flag-warpper
+    .trigger-flag-warpper
       position: relative
       height: 30px
-
       svg
         position: absolute
         top: 50% !important
@@ -31,7 +61,11 @@
         height: 45px
         width: 41px
         left: 0
-
       .country-wrapper
         padding-left: 50px
         padding-top: 7px
+      &.small
+        .country-wrapper
+          padding-left: 35px
+        svg
+          width: 30px

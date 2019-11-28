@@ -9,13 +9,18 @@ import { take, takeUntil } from 'rxjs/operators';
 })
 export class AppComponent {
   ctrl = new FormControl('');
+  newctrl = new FormControl('');
+  mobilenumber = new FormControl('');
   form: FormGroup;
   constructor() {
     this.form = new FormGroup({
-      ctrlName: this.ctrl
-    })
+      ctrlName: this.ctrl,
+      newCtrlName: this.newctrl,
+      mobileNumber: this.mobilenumber
+    });
     this.form.valueChanges.subscribe(data => {
-      console.log(data)
-    })
+      console.log(data);
+    });
+    this.form.get('ctrlname');
   }
 }
